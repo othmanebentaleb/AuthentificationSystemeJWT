@@ -1,0 +1,5 @@
+name: jwt-system-authentication
+memory: 512M
+instances: 1
+domain: cfapps.io
+path: target/JWTSystemAuthentication-0.0.1-SNAPSHOT.jar
