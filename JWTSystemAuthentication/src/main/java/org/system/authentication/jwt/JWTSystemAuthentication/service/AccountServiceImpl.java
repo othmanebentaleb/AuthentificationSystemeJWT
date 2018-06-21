@@ -46,7 +46,8 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public AppRole getRoleByRolename(String rolename) {
-        return null;
+        if(rolename == null || rolename.equals("")) throw new RuntimeException("Please make sure the rolename is valid");
+        return this.roleRepository.findByRolename(rolename);
     }
 
     @Override

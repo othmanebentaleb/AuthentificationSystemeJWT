@@ -20,8 +20,8 @@ public class AccountController {
     }
 
     @PostMapping("register")
-    public void registerUser(@RequestBody AppUser user){
-        this.accountService.saveUser(user);
+    public AppUser registerUser(@RequestBody AppUser user){
+       return this.accountService.saveUser(user);
     }
 
 }
