@@ -16,7 +16,7 @@ public class AccountController {
 
     @GetMapping("tester")
     public String test(){
-        return "Hello world 2";
+        return "Hello world 222";
     }
 
     @PostMapping("register")
