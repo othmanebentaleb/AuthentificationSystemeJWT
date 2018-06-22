@@ -16,12 +16,13 @@ public class AccountController {
 
     @GetMapping("tester")
     public String test(){
-        return "Hello world";
+        return "Hello world 2";
     }
 
     @PostMapping("register")
     public AppUser registerUser(@RequestBody AppUser user){
        return this.accountService.saveUser(user);
     }
+
 
 }
