@@ -36,7 +36,11 @@ public class JwtSystemAuthenticationApplication implements CommandLineRunner {
 		accountService.addRoleToUser("admin","ADMIN");
 		accountService.addRoleToUser("admin","USER");
 		accountService.addRoleToUser("othmane","USER");
-
+		System.out.println("OOKKKKKKKKK");
+		AppUser u = accountService.getUserByUsername("admin");
+		u.getRoles().forEach(r->{
+			System.out.println(r.getRolename());
+		});
 
 
 
