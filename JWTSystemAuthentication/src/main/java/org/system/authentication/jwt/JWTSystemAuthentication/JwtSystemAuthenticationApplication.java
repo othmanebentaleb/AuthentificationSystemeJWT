@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.system.authentication.jwt.JWTSystemAuthentication.dao.UserRepository;
+import org.system.authentication.jwt.JWTSystemAuthentication.entities.AppRole;
 import org.system.authentication.jwt.JWTSystemAuthentication.entities.AppUser;
+import org.system.authentication.jwt.JWTSystemAuthentication.service.IAccountService;
 
 import java.util.stream.Stream;
 
@@ -18,16 +20,30 @@ public class JwtSystemAuthenticationApplication implements CommandLineRunner {
 		SpringApplication.run(JwtSystemAuthenticationApplication.class, args);
 	}
 
+
 	@Autowired
-	private UserRepository userRepository;
+	private IAccountService accountService;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		Stream.of("U1","U2","U3").forEach(u->{
+		accountService.saveUser(new AppUser("admin","1234",null));
+		accountService.saveUser(new AppUser("othmane","1234",null));
+
+		accountService.saveRole(new AppRole("ADMIN"));
+		accountService.saveRole(new AppRole("USER"));
+
+		accountService.addRoleToUser("admin","ADMIN");
+		accountService.addRoleToUser("admin","USER");
+		accountService.addRoleToUser("othmane","USER");
+
+
+
+
+		/*Stream.of("U1","U2","U3").forEach(u->{
 				userRepository.save(new AppUser(u,"pwd1",null));
 				System.out.println(u);
-		});
+		});*/
 
 	}
 	@Bean
