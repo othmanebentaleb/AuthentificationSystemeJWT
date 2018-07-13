@@ -24,6 +24,9 @@ public class AccountController {
        return this.accountService.saveUser(user);
     }
 
-
+    @GetMapping("login")
+    public String login(){
+        return "login";
+    }
 
 }

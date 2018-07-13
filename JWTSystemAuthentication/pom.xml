@@ -6,7 +6,7 @@
 	<groupId>org.system.authentication.jwt</groupId>
 	<artifactId>JWTSystemAuthentication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>JWTSystemAuthentication</name>
 	<description>Demo project for Spring Boot</description>
@@ -63,6 +63,13 @@
 			<artifactId>jjwt </artifactId>
 			<version>RELEASE</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
 	</dependencies>
 
 	<build>

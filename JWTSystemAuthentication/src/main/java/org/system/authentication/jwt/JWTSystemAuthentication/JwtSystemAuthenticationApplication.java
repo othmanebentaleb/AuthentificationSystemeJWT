@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.system.authentication.jwt.JWTSystemAuthentication.dao.UserRepository;
@@ -14,7 +16,12 @@ import org.system.authentication.jwt.JWTSystemAuthentication.service.IAccountSer
 import java.util.stream.Stream;
 
 @SpringBootApplication
-public class JwtSystemAuthenticationApplication implements CommandLineRunner {
+public class JwtSystemAuthenticationApplication extends SpringBootServletInitializer implements CommandLineRunner  {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(JwtSystemAuthenticationApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(JwtSystemAuthenticationApplication.class, args);
